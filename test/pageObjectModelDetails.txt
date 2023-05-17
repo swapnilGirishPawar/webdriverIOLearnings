@@ -1,0 +1,38 @@
+What is POM?(Page Object Model)
+    design principle, object seprate from test scripts
+    create class for every page of application like Login Page, payment Page, Home Page
+    keep all object in class file
+    also all actions goes into vlass file
+
+    Steps to implement POM
+    1. Create a class for each page. :- Done
+    2. Create a locators of all the objects to be used in that page. :- Done
+    3. Create a methods or actions to be performed on the objects. :- Done
+    4. refer this in to the test scripts. :- 
+
+
+
+const loginPage = require('../pages/login.page')
+
+class HomePage{
+    // Getter Methods (Locators)
+    get loginMessage(){
+        return $('#flassh');
+    }
+
+    get logoutButton(){
+        return $('class="icon-2x icon-signout"')
+    }
+
+    // Functions
+    async checkMessage(message){
+        await expect(this.loginMessage).toHaveTextContaining(message);
+    }
+
+    async clickLogoutButton(){
+        await this.logoutButton.click();
+    }
+
+
+}
+module.exports = new HomePage();

@@ -1,0 +1,7 @@
+What is POM?(Page Object Model)
+    design principle, object seprate from test scripts
+    create class for every page of application like Login Page, payment Page, Home Page
+    keep all object in class file
+    also all actions goes into vlass file
+
+    

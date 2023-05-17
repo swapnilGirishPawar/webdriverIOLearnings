@@ -20,11 +20,27 @@ class HomePage{
         return $('#regSignIn.password')
     }
 
-    async enterEmailId(){
-        await emailTextBox().
+    get errorMessage(){
+        return $('#regErrors')
     }
 
-    async enterPassword(){
-        await 
+    // Actions
+    async enterEmailId(email){
+        await this.emailTextBox().setValue(email);
     }
+
+    async enterPassword(password){
+        await this.passwordTextBox().setValue(password);
+    }
+
+    async clickSignInButton(){
+        await this.signInButton().click();
+    }
+
+    async checkErrorMessage(message){
+        await expect(this.errorMessage).toHaveTextContaining(message);
+    }
+
 }
+
+module.exports = new HomePage();
